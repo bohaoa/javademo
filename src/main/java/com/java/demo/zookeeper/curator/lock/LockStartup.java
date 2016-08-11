@@ -1,4 +1,4 @@
-package com.java.demo.zookeeper.curator;
+package com.java.demo.zookeeper.curator.lock;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +15,8 @@ import com.java.demo.zookeeper.curator.config.ZooKeeperFactory;
  *
  */
 public class LockStartup {
+	
+	private static int number = 0;
 
 	private static void printProcess(final InterProcessSemaphoreMutex processSemaphoreMutex) {
 		System.out.println("isAcquiredInThisProcess: "
@@ -22,23 +24,38 @@ public class LockStartup {
 	}
 	
 	public static void main(String[] args) throws Exception {
+		for(int i=0; i<10; i++){
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						test();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}).start();
+		}
+	}
+
+	public static void test() throws Exception{
 		CuratorFramework client = ZooKeeperFactory.get();
 		final InterProcessSemaphoreMutex processSemaphoreMutex = new InterProcessSemaphoreMutex(client, "/lock");
 		printProcess(processSemaphoreMutex);
 
-		System.out.println("Starting get lock...");
-		boolean flag = processSemaphoreMutex.acquire(1000, TimeUnit.MILLISECONDS);
-		System.out.println(flag ? "Getting lock successful." : "Getting failed!");
-
-		printProcess(processSemaphoreMutex);
-
+//		System.out.println("Starting get lock...");
+		boolean flag = processSemaphoreMutex.acquire(25000, TimeUnit.MILLISECONDS);
+		System.out.println(flag ? "Getting lock successful." : "Getting failed! "+Thread.currentThread().getName());
+//		printProcess(processSemaphoreMutex);
 		Thread.sleep(2 * 1000);
-
+		
+		number ++;
+		System.out.println(Thread.currentThread().getName()+"当前的number:"+number);
 		if (processSemaphoreMutex.isAcquiredInThisProcess()) {
 			processSemaphoreMutex.release();
 		}
-		printProcess(processSemaphoreMutex);
+//		printProcess(processSemaphoreMutex);
 		client.close();
 	}
-
+	
 }
