@@ -26,7 +26,7 @@ public class FlyweightFactory {
         ConcreteCompositeFlyweight compositeFly = new ConcreteCompositeFlyweight();
         
         for(Character state : compositeState){
-            compositeFly.add(state,this.factory(state));
+            compositeFly.add(state, this.factory(state));
         }
         
         return compositeFly;
