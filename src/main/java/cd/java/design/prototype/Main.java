@@ -10,7 +10,7 @@ public class Main {
 	      
 	      MyColor obj2=(MyColor)pm.getColor("red");
 	      obj2.display();
-	      
+
 	      System.out.println(obj1==obj2);
 	}
 

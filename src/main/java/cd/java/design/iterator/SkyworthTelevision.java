@@ -1,5 +1,8 @@
 package cd.java.design.iterator;
 
+/**
+ * 迭代器模式： 数据和迭代聚合器分离～
+ */
 public class SkyworthTelevision implements Television {
 
 	private Object[] obj = { "CCTV-1", "CCTV-2", "CCTV-3", "CCTV-4", "CCTV-5",

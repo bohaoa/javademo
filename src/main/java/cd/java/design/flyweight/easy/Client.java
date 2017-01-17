@@ -3,6 +3,10 @@ package cd.java.design.flyweight.easy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 享元模式： 在池子里共享很多公用的对用，供大家使用。
+ * 享元模式以共享的方式高效地支持大量细粒度对象的重用
+ */
 public class Client {
 
 	public static void main(String[] args) {
@@ -16,7 +20,7 @@ public class Client {
         FlyweightFactory flyFactory = new FlyweightFactory();
         Flyweight compositeFly1 = flyFactory.factory(compositeState);
         Flyweight compositeFly2 = flyFactory.factory(compositeState);
-        compositeFly1.operation("Composite Call");
+        compositeFly1.operation("  Call");
         
         System.out.println("---------------------------------");        
         System.out.println("复合享元模式是否可以共享对象：" + (compositeFly1 == compositeFly2));

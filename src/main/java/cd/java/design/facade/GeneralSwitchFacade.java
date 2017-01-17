@@ -1,7 +1,8 @@
 package cd.java.design.facade;
 
 /**
- * 外观模式
+ * 外观模式： 系统和多个子系统交互，通过外观角色来定义子系统的角色。
+ * 外观者类来定义相应的动作 facade
  * @author Thinkpad
  *
  */

@@ -8,10 +8,12 @@ package cd.java.design.prototype;
 public class Email implements Cloneable 
 {
 	private Attachment attachment=null;
+	private String name=null;
 	
 	public Email()
 	{
 		this.attachment=new Attachment();
+		this.name = new String("123");
 	}
 	
 	public Object clone()
@@ -27,10 +29,14 @@ public class Email implements Cloneable
         }
 		return clone;
 	}
-	
+
 	public Attachment getAttachment()
 	{
 		return this.attachment;
+	}
+
+	public String getName(){
+		return this.name;
 	}
 	
 	public void display()

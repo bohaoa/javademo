@@ -93,6 +93,11 @@ class Student implements Cloneable
 		
 		//使用原型模式
 		stu3=stu1.clone();
+
+		//对比数据
+		System.out.println("stu2 == stu3:"+(stu2 == stu3));
+		System.out.println("stu2 == stu3:"+(stu2.getStuAge()== stu3.getStuAge()));
+
 		stu3.setStuName("小龙女");
 		stu3.setStuSex("女");		
 		
@@ -119,6 +124,9 @@ class Student implements Cloneable
 		System.out.print("，学院：" + stu3.getStuCollege());
 		System.out.print("，学校：" + stu3.getStuUniversity());
 		System.out.println();
+
+
+
 	}
 }
  

@@ -16,10 +16,12 @@ import java.io.Serializable;
 public class Email2 implements Serializable {
 
 	private Attachment attachment=null;
+	private String name=null;
 	
 	public Email2()
 	{
 		this.attachment=new Attachment();
+		this.name = "123";
 	}
 	
 	public Object deepClone() throws IOException, ClassNotFoundException, OptionalDataException
@@ -38,6 +40,10 @@ public class Email2 implements Serializable {
 	public Attachment getAttachment()
 	{
 		return this.attachment;
+	}
+
+	public String getName(){
+		return this.name;
 	}
 	
 	public void display()

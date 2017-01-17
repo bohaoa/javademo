@@ -7,16 +7,19 @@ public class Client
 {
 	public static void main(String a[]) throws OptionalDataException, ClassNotFoundException, IOException
 	{
-		Email2 email,copyEmail;
+		Email email,copyEmail;
 		
-		email=new Email2();
+		email=new Email();
 		
-		copyEmail=(Email2)email.deepClone();
+		copyEmail=(Email)email.clone();
 		
 		System.out.println("email==copyEmail?");
 		System.out.println(email==copyEmail);
 		
 		System.out.println("email.getAttachment==copyEmail.getAttachment?"); 
-		System.out.println(email.getAttachment()==copyEmail.getAttachment());			
+		System.out.println(email.getAttachment()==copyEmail.getAttachment());
+
+		System.out.println("email.getName==copyEmail.getName?");
+		System.out.println(email.getName() == copyEmail.getName());
 	}
 }
