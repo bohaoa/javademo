@@ -1,4 +1,4 @@
-package com.java.demo.thread;
+package com.java.demo.thread.lock;
 
 public class TransferRunnable implements Runnable {
 	

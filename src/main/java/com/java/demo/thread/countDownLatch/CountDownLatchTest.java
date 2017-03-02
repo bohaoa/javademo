@@ -1,4 +1,4 @@
-package com.java.demo.thread.util;
+package com.java.demo.thread.countDownLatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -54,8 +54,9 @@ public class CountDownLatchTest {
 		}
 		System.out.println("Game Start");  
 		// begin减一，开始游戏
-        begin.countDown();  
-        // 等待end变为0，即所有选手到达终点
+        begin.countDown();
+		System.out.println("Game Start111");
+		// 等待end变为0，即所有选手到达终点
         end.await();  
         System.out.println("Game Over");  
         es.shutdown();  

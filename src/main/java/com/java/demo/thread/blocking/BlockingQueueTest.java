@@ -1,4 +1,4 @@
-package com.java.demo.thread;
+package com.java.demo.thread.blocking;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,7 +8,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 阻塞队列 test
+ * 阻塞队列 test：先进先出
+ * BlockingQueue： ArrayBlockingQueue DelayQueue、LinkedBlockingQueue、PriorityBlockingQueue、SynchronousQueue
  * @author moetakara
  */
 public class BlockingQueueTest {
